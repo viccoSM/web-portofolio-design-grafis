@@ -1,0 +1,17 @@
+.landingpage.jumbotron {
+  background-image: url(../../assets/img/LandingPage.jpg);
+  background-blend-mode: multiply;
+  background-size: cover;
+  height: 560px;
+}
+
+.display-4 {
+  font-weight: 400;
+  color: rgb(219, 219, 221);
+  text-shadow: 1px 1px 10px rgb(31, 30, 30);
+}
+
+.lead {
+  color: rgb(219, 219, 221);
+  text-shadow: 1px 1px 10px rgb(31, 30, 30);
+}
