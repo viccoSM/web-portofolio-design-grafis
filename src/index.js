@@ -7,6 +7,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import firebase from "./config/Firebase";
+console.log("Firebase", firebase);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

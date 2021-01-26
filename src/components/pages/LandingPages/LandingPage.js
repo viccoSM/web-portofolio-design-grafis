@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -13,9 +15,9 @@ const LandingPage = () => {
                 Platform yang menyediakan tempat untuk portofolio desain grafis
                 dari mahasiswa
               </p>
-              <a className="btn btn-primary btn-lg" href="#" role="button">
-                Registration
-              </a>
+              <Link to="/registration">
+                <button className="btn btn-primary btn-lg">Registration</button>
+              </Link>
             </div>
             <div className="col-md"></div>
           </div>
