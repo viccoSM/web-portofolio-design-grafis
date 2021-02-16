@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import firebase from "./config/Firebase";
+import firebase from "./config/Firebase/Firebase";
 console.log("Firebase", firebase);
 
 ReactDOM.render(

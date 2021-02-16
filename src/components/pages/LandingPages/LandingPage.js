@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Login from "../../parts/Login/Login";
 
 import "./LandingPage.css";
 
@@ -19,7 +20,9 @@ const LandingPage = () => {
                 <button className="btn btn-primary btn-lg">Registration</button>
               </Link>
             </div>
-            <div className="col-md"></div>
+            <div className="col-md login">
+              <Login />
+            </div>
           </div>
         </div>
       </div>

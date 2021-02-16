@@ -1,0 +1,19 @@
+.site-footer {
+  background-color: #26272b;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #737373;
+}
+
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
+}
+
+.site-footer h6,
+p,
+li {
+  color: rgb(161, 161, 161);
+  margin-top: 5px;
+}

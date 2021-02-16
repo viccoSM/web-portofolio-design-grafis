@@ -1,73 +1,176 @@
-import React, { Component } from "react";
+import React from "react";
 
-import firebase from "../../../config/Firebase";
+// import firebase from "../../../config/Firebase/Firebase";
+import useForm from "./useForm";
+import validate from "./ValidateInfo";
 
 import "./Registration.css";
 
-class Registration extends Component {
-  state = {
-    email: "",
-    password: "",
-  };
-  handleChangeText = (e) => {
-    // console.log(e.target);
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
-  };
-  handleRegisterSubmit = () => {
-    const { email, password } = this.state;
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-        // Signed in
-        // ...
-        console.log("success", user);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ..
-        console.log(errorCode, errorMessage);
-      });
-  };
-  render() {
-    return (
-      <>
-        <div className="registration container">
-          <h4 className="text-center">Registration</h4>
-          <hr></hr>
-          <form action="">
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Email"
-                id="email"
-                onChange={this.handleChangeText}
-              />
+const Registration = () => {
+  // state = {
+  //   email: "",
+  //   password: "",
+  // };
+  const { handleChange, values, handleSubmit, errors } = useForm(validate);
+  // handleChangeText = (e) => {
+  //   // console.log(e.target);
+  //   this.setState({
+  //     [e.target.id]: e.target.value,
+  //   });
+  // };
+  // handleRegisterSubmit = () => {
+  //   const { email, password } = this.state;
+  //   firebase
+  //     .auth()
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((user) => {
+  //       // Signed in
+  //       // ...
+  //       console.log("success", user);
+  //     })
+  //     .catch((error) => {
+  //       var errorCode = error.code;
+  //       var errorMessage = error.message;
+  //       // ..
+  //       console.log(errorCode, errorMessage);
+  //     });
+  // };
+  // render() {
+  return (
+    <>
+      <div className="registration container">
+        <h4 className="text-center">Registration</h4>
+        <hr></hr>
+        <form className="form-register" onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-md">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="First Name"
+                  name="firstName"
+                  id="firstName"
+                  value={values.firstName}
+                  onChange={handleChange}
+                />
+                {errors.firstName && <p>{errors.firstName}</p>}
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Last Name"
+                  name="lastName"
+                  id="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                />
+
+                {errors.lastName && <p>{errors.lastName}</p>}
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="University"
+                  name="university"
+                  id="university"
+                  value={values.university}
+                  onChange={handleChange}
+                />
+
+                {errors.university && <p>{errors.university}</p>}
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Program of Study"
+                  name="major"
+                  id="major"
+                  value={values.major}
+                  onChange={handleChange}
+                />
+
+                {errors.major && <p>{errors.major}</p>}
+              </div>
             </div>
-            <div className="form-group">
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-                id="password"
-                onChange={this.handleChangeText}
-              />
+            <div className="col-md">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Gender"
+                  name="gender"
+                  id="gender"
+                  value={values.gender}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Date of Birth"
+                  name="dateOfBirth"
+                  id="dateOfBirth"
+                  value={values.dateOfBirth}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+
+                {errors.email && <p>{errors.email}</p>}
+              </div>
             </div>
-            <button
-              className="btn btn-primary"
-              onClick={this.handleRegisterSubmit}
-            >
-              Register
-            </button>
-          </form>
-        </div>
-      </>
-    );
-  }
-}
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              name="password"
+              id="password"
+              value={values.password}
+              onChange={handleChange}
+            />
+
+            {errors.password && <p>{errors.password}</p>}
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              id="confirmPassword"
+              value={values.confirmPassword}
+              onChange={handleChange}
+            />
+
+            {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+          </div>
+          <button
+            className="btn btn-primary"
+            // onClick={this.handleRegisterSubmit}
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </>
+  );
+  // }
+};
 
 export default Registration;
