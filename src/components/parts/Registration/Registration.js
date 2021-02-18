@@ -11,7 +11,13 @@ const Registration = () => {
   //   email: "",
   //   password: "",
   // };
-  const { handleChange, values, handleSubmit, errors } = useForm(validate);
+  const {
+    handleChange,
+    handleRegisterSubmit,
+    values,
+    handleSubmit,
+    errors,
+  } = useForm(validate);
   // handleChangeText = (e) => {
   //   // console.log(e.target);
   //   this.setState({
@@ -160,10 +166,7 @@ const Registration = () => {
 
             {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
           </div>
-          <button
-            className="btn btn-primary"
-            // onClick={this.handleRegisterSubmit}
-          >
+          <button className="btn btn-primary" onClick={handleRegisterSubmit}>
             Register
           </button>
         </form>
