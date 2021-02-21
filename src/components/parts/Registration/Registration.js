@@ -1,47 +1,17 @@
 import React from "react";
-
-// import firebase from "../../../config/Firebase/Firebase";
-import useForm from "./useForm";
+import Auth from "../../../config/Auth/Auth";
 import validate from "./ValidateInfo";
 
 import "./Registration.css";
 
 const Registration = () => {
-  // state = {
-  //   email: "",
-  //   password: "",
-  // };
   const {
     handleChange,
     handleRegisterSubmit,
     values,
     handleSubmit,
     errors,
-  } = useForm(validate);
-  // handleChangeText = (e) => {
-  //   // console.log(e.target);
-  //   this.setState({
-  //     [e.target.id]: e.target.value,
-  //   });
-  // };
-  // handleRegisterSubmit = () => {
-  //   const { email, password } = this.state;
-  //   firebase
-  //     .auth()
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((user) => {
-  //       // Signed in
-  //       // ...
-  //       console.log("success", user);
-  //     })
-  //     .catch((error) => {
-  //       var errorCode = error.code;
-  //       var errorMessage = error.message;
-  //       // ..
-  //       console.log(errorCode, errorMessage);
-  //     });
-  // };
-  // render() {
+  } = Auth(validate);
   return (
     <>
       <div className="registration container">
@@ -127,7 +97,7 @@ const Registration = () => {
               </div>
               <div className="form-group">
                 <input
-                  type="text"
+                  type="email"
                   className="form-control"
                   placeholder="Email"
                   name="email"
