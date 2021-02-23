@@ -1,10 +1,10 @@
 import React from "react";
-import Auth from "../../../config/Auth/Auth";
 
 import "./Login.css";
+import useForm from "./useForm";
 
 const Login = () => {
-  const { handleLoginSubmit, handleChange, handleSubmit } = Auth();
+  const { handleLoginSubmit, handleChange, handleSubmit } = useForm();
 
   return (
     <>

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-import firebase from "../Firebase/Firebase";
+import firebase from "../../../config/Firebase/Firebase";
 
-const Auth = () => {
+const useForm = () => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -20,22 +21,7 @@ const Auth = () => {
     });
   };
 
-  const handleRegisterSubmit = () => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(values.email, values.confirmPassword)
-      .then((user) => {
-        // Signed in
-        // ...
-        console.log("success", user);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message; // ..
-        console.log(errorCode, errorMessage);
-      });
-  };
-
+  const history = useHistory();
   const handleLoginSubmit = () => {
     firebase
       .auth()
@@ -44,6 +30,7 @@ const Auth = () => {
         // Signed in
         // ...
         console.log("success", user);
+        history.push("/Home");
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -53,22 +40,16 @@ const Auth = () => {
       });
   };
 
-  const handleLogout = () => {
-    firebase.auth().signOut();
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return {
     handleChange,
-    handleRegisterSubmit,
     handleLoginSubmit,
     handleSubmit,
     values,
-    handleLogout,
   };
 };
 
-export default Auth;
+export default useForm;

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "../../parts/Login/Login";
-
 import "./LandingPage.css";
 
 const LandingPage = () => {

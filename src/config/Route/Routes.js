@@ -6,6 +6,7 @@ import Registration from "../../components/parts/Registration/Registration";
 import Navbar from "../../components/parts/Navbar/Navbar";
 import Login from "../../components/parts/Login/Login";
 import Dashboard from "../../components/pages/Dashboard/Dashboard";
+import Category from "../../components/parts/Category/Category";
 
 function Routes() {
   return (
@@ -15,8 +16,9 @@ function Routes() {
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/registration" exact component={Registration} />
-          <Route path="/Login" exact component={Login} />
-          <Route path="/Home" exact component={Dashboard} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/home" exact component={Dashboard} />
+          <Route path="/category" exact component={Category} />
         </Switch>
         <Footer />
       </Router>

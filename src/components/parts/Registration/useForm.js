@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import firebase from "../../../config/Firebase/Firebase";
 
 const useForm = (validate) => {
@@ -11,6 +12,7 @@ const useForm = (validate) => {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -27,6 +29,7 @@ const useForm = (validate) => {
       .then((user) => {
         // Signed in
         // ...
+        history.push("login");
         console.log("success", user);
       })
       .catch((error) => {

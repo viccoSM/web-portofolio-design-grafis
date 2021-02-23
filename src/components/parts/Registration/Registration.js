@@ -1,8 +1,8 @@
 import React from "react";
-import Auth from "../../../config/Auth/Auth";
 import validate from "./ValidateInfo";
 
 import "./Registration.css";
+import useFormRegister from "./useForm";
 
 const Registration = () => {
   const {
@@ -11,7 +11,7 @@ const Registration = () => {
     values,
     handleSubmit,
     errors,
-  } = Auth(validate);
+  } = useFormRegister(validate);
   return (
     <>
       <div className="registration container">
