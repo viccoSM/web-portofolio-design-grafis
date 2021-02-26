@@ -1,10 +1,37 @@
 import React from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { handleLoginSubmit } from "../../../config/Redux/Action/Auth";
 
 import "./Login.css";
 import useForm from "./useForm";
 
 const Login = () => {
   const { handleLoginSubmit, handleChange, handleSubmit } = useForm();
+  // const { isLoading } = useSelector((state) => state.AuthReducer);
+  // const dispatch = useDispatch();
+
+  // const [values, setValues] = useState({
+  //   email: "",
+  //   password: "",
+  // });
+
+  // const handleChange = (e) => {
+  //   const { id, value } = e.target;
+  //   setValues({
+  //     ...values,
+  //     [id]: value,
+  //   });
+  // };
+
+  // dispatch(handleLoginSubmit(values));
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
+  // dispatch(handleLoginSubmit(values));
+
+  // useEffect(() => {
+  // }, [dispatch]);
 
   return (
     <>

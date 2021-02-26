@@ -8,10 +8,16 @@ const Registration = () => {
   const {
     handleChange,
     handleRegisterSubmit,
+    // createDataUser,
     values,
     handleSubmit,
     errors,
   } = useFormRegister(validate);
+
+  // useEffect(() => {
+  //   createDataUser();
+  // }, []);
+
   return (
     <>
       <div className="registration container">

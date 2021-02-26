@@ -29,6 +29,7 @@ const useForm = (validate) => {
       .then((user) => {
         // Signed in
         // ...
+        localStorage.setItem("userData", JSON.stringify(user));
         history.push("login");
         console.log("success", user);
       })
@@ -39,13 +40,37 @@ const useForm = (validate) => {
         console.log(errorCode, errorMessage);
       });
   };
+
+  // const createDataUser = () => {
+  //   const userData = JSON.parse(localStorage.getItem("userData"));
+  //   database()
+  //     .ref("users/" + userData.uid)
+  //     .push({
+  //       user: {
+  //         firstName: values.id,
+  //         lastName: values.id,
+  //         University: values.id,
+  //         email: values.id,
+  //         password: values.id,
+  //         confirmPassword: values.id,
+  //       },
+  //     });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setErrors(validate(values));
   };
 
-  return { handleChange, handleRegisterSubmit, handleSubmit, values, errors };
+  return {
+    handleChange,
+    handleRegisterSubmit,
+    handleSubmit,
+    // createDataUser,
+    values,
+    errors,
+  };
 };
 
 export default useForm;

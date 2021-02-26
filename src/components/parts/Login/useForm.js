@@ -23,21 +23,31 @@ const useForm = () => {
 
   const history = useHistory();
   const handleLoginSubmit = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(values.email, values.password)
-      .then((user) => {
-        // Signed in
-        // ...
-        console.log("success", user);
-        history.push("/Home");
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ..
-        console.log(errorCode, errorMessage);
-      });
+    return new Promise((resolve, reject) => {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(values.email, values.password)
+        .then((res) => {
+          // Signed in
+          // ...
+          localStorage.setItem("userData", JSON.stringify(res));
+          const dataUser = {
+            email: res.user.email,
+            uid: res.user.uid,
+            emailVerified: res.user.emailVerified,
+          };
+          console.log("success", res);
+          history.push("/Home");
+          resolve(dataUser);
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ..
+          console.log(errorCode, errorMessage);
+          reject();
+        });
+    });
   };
 
   const handleSubmit = (e) => {

@@ -1,10 +1,11 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-import "firebase/firestore";
+import "firebase/database";
+// import "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyD5mujroA9L153BsBj6uRPruIi2w-AA2nA",
   authDomain: "portofolio-desain-grafis.firebaseapp.com",
   projectId: "portofolio-desain-grafis",
@@ -15,7 +16,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// var database = firebase.database();
+export const database = firebase.database();
 // firebase.analytics();
 
 export default firebase;

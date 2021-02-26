@@ -6,7 +6,7 @@ import Registration from "../../components/parts/Registration/Registration";
 import Navbar from "../../components/parts/Navbar/Navbar";
 import Login from "../../components/parts/Login/Login";
 import Dashboard from "../../components/pages/Dashboard/Dashboard";
-import Category from "../../components/parts/Category/Category";
+// import FormCategory from "../../components/parts/Catagory/FormCategory";
 
 function Routes() {
   return (
@@ -18,7 +18,7 @@ function Routes() {
           <Route path="/registration" exact component={Registration} />
           <Route path="/login" exact component={Login} />
           <Route path="/home" exact component={Dashboard} />
-          <Route path="/category" exact component={Category} />
+          {/* <Route path="/formcategory" exact component={FormCategory} /> */}
         </Switch>
         <Footer />
       </Router>
