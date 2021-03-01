@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 // import { handleLoginSubmit } from "../../../config/Redux/Action/Auth";
 
 import "./Login.css";
@@ -7,7 +8,7 @@ import useForm from "./useForm";
 
 const Login = () => {
   const { handleLoginSubmit, handleChange, handleSubmit } = useForm();
-  // const { isLoading } = useSelector((state) => state.AuthReducer);
+  // const { isLogin, user } = useSelector((state) => state.AuthReducer);
   // const dispatch = useDispatch();
 
   // const [values, setValues] = useState({
@@ -23,14 +24,26 @@ const Login = () => {
   //   });
   // };
 
-  // dispatch(handleLoginSubmit(values));
+  // dispatch(handleLoginSubmit(values.email, values.password));
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   // };
-  // dispatch(handleLoginSubmit(values));
 
+  const history = useHistory();
+  const loginSubmit = async () => {
+    const res = await handleLoginSubmit().catch((err) => err);
+    if (res) {
+      localStorage.setItem("userData", JSON.stringify(res));
+      console.log("Login success", res);
+      history.push("/Home");
+    } else {
+      console.log("login failed");
+      alert("Login Failed");
+    }
+  };
   // useEffect(() => {
+  //   dispatch(handleLoginSubmit());
   // }, [dispatch]);
 
   return (
@@ -57,7 +70,7 @@ const Login = () => {
               onChange={handleChange}
             />
           </div>
-          <button className="btn btn-primary" onClick={handleLoginSubmit}>
+          <button className="btn btn-primary" onClick={loginSubmit}>
             Login
           </button>
         </form>

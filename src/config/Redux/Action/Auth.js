@@ -1,16 +1,14 @@
 import firebase from "../../Firebase/Firebase";
-import { useHistory } from "react-router-dom";
 
 export const handleLoginSubmit = (data) => (dispatch) => {
-  return () => {
-    const history = useHistory();
+  return new Promise((resolve, reject) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password)
       .then((res) => {
         // Signed in
         // ...
-        localStorage.setItem("userData", JSON.stringify(res));
+        // localStorage.setItem("userData", JSON.stringify(res));
         // const dataUser = {
         //   email: res.user.email,
         //   uid: res.user.uid,
@@ -19,7 +17,7 @@ export const handleLoginSubmit = (data) => (dispatch) => {
         console.log("success", res);
         dispatch({ type: "CHANGE_LOGIN", value: true });
         dispatch({ type: "CHANGE_USER", value: res.user });
-        history.push("/Home");
+        resolve(true);
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -27,6 +25,7 @@ export const handleLoginSubmit = (data) => (dispatch) => {
         // ..
         console.log(errorCode, errorMessage);
         dispatch({ type: "CHANGE_LOADING", value: false });
+        reject(false);
       });
-  };
+  });
 };

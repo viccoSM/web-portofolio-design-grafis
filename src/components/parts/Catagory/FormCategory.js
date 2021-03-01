@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from "react";
 
-import { database } from "../../../config/Firebase/Firebase";
+import firebase from "../../../config/Firebase/Firebase";
 import "./FormCategory.css";
 
 function FormCategory() {
-  const [values, setValues] = useState({
-    category: "",
-  });
+  const [category, setCategory] = useState();
+  // const [user, setUser] = useState();
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setValues({
-      ...values,
-      [id]: value,
-    });
+    setCategory(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const userData = JSON.parse(localStorage.getItem("userData"));
   const createDataUser = () => {
-    database()
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    console.log("user", userData.uid);
+    console.log("category", category);
+    firebase
+      .database()
       .ref("users/" + userData.uid)
       .push({
-        category: values.category,
+        category: category,
       });
   };
 
@@ -38,6 +36,7 @@ function FormCategory() {
             className="form-control"
             placeholder="Title"
             id="category"
+            value={category}
             onChange={handleChange}
           />
         </div>

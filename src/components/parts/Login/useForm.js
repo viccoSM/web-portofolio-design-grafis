@@ -30,7 +30,10 @@ const useForm = () => {
         .then((res) => {
           // Signed in
           // ...
-          localStorage.setItem("userData", JSON.stringify(res));
+          // const dataUser = localStorage.setItem(
+          //   "userData",
+          //   JSON.stringify(res)
+          // );
           const dataUser = {
             email: res.user.email,
             uid: res.user.uid,
