@@ -7,7 +7,7 @@ import useFormRegister from "./useForm";
 const Registration = () => {
   const {
     handleChange,
-    handleRegisterSubmit,
+    registerSubmit,
     values,
     handleSubmit,
     errors,
@@ -137,7 +137,7 @@ const Registration = () => {
 
             {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
           </div>
-          <button className="btn btn-primary" onClick={handleRegisterSubmit}>
+          <button className="btn btn-primary" onClick={registerSubmit}>
             Register
           </button>
         </form>

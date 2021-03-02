@@ -6,6 +6,7 @@ import Registration from "../../components/parts/Registration/Registration";
 import Navbar from "../../components/parts/Navbar/Navbar";
 import Login from "../../components/parts/Login/Login";
 import Dashboard from "../../components/pages/Dashboard/Dashboard";
+import AboutUs from "../../components/pages/AboutUs/AboutUs";
 // import FormCategory from "../../components/parts/Catagory/FormCategory";
 
 function Routes() {
@@ -18,6 +19,7 @@ function Routes() {
           <Route path="/registration" exact component={Registration} />
           <Route path="/login" exact component={Login} />
           <Route path="/home" exact component={Dashboard} />
+          <Route path="/aboutus" exact component={AboutUs} />
           {/* <Route path="/formcategory" exact component={FormCategory} /> */}
         </Switch>
         <Footer />

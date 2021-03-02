@@ -25,18 +25,13 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/landingpage">
+              <Link to="/">
                 <a className="nav-link">Home</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="">
+              <Link to="/aboutus">
                 <a className="nav-link">About Us</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="">
-                <a className="nav-link">Contact Us</a>
               </Link>
             </li>
           </ul>
@@ -49,7 +44,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link to="/registration">
-                  <button class="btn btn-primary">Regiistration</button>
+                  <button class="btn btn-primary">Registration</button>
                 </Link>
               </li>
             </ul>

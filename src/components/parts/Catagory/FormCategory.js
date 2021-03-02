@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import firebase from "../../../config/Firebase/Firebase";
+// import firebase from "../../../config/Firebase/Firebase";
 import "./FormCategory.css";
+import useFormCategory from "./useForm";
 
 function FormCategory() {
-  const [category, setCategory] = useState();
-  // const [user, setUser] = useState();
-
-  const handleChange = (e) => {
-    setCategory(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const createDataUser = () => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    console.log("user", userData.uid);
-    console.log("category", category);
-    firebase
-      .database()
-      .ref("users/" + userData.uid)
-      .push({
-        category: category,
-      });
-  };
-
+  const {
+    handleChange,
+    createDataUser,
+    handleSubmit,
+    category,
+  } = useFormCategory();
   return (
     <>
       <form className="form-category" onSubmit={handleSubmit}>
