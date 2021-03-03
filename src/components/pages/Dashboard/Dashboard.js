@@ -1,35 +1,61 @@
-import React, { Component } from "react";
-import Home from "./Home";
+import React, { useEffect, useState, Component } from "react";
+// import Home from "../Home/Home";
 import firebase from "../../../config/Firebase/Firebase";
 import Login from "../../parts/Login/Login";
+import Dash from "./Dash";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-    };
+const Dashboard = () => {
+  const [user, setUser] = useState("");
 
-    this.authListener = this.authListener.bind(this);
-  }
-
-  componentDidMount() {
-    this.authListener();
-  }
-
-  authListener() {
+  const authListner = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ user });
+        setUser(user);
       } else {
-        this.setState({ user: null });
+        setUser("");
       }
     });
-  }
+  };
 
-  render() {
-    return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
-  }
-}
+  useEffect(() => {
+    authListner();
+  }, []);
+  return (
+    <>
+      <div className="dashboard">{user ? <Dash /> : <Login />}</div>
+    </>
+  );
+};
 
-export default App;
+export default Dashboard;
+
+// class Dashboard extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       user: null,
+//     };
+
+//     this.authListener = this.authListener.bind(this);
+//   }
+
+//   componentDidMount() {
+//     this.authListener();
+//   }
+
+//   authListener() {
+//     firebase.auth().onAuthStateChanged((user) => {
+//       if (user) {
+//         this.setState({ user });
+//       } else {
+//         this.setState({ user: null });
+//       }
+//     });
+//   }
+
+//   render() {
+//     return <div className="App">{this.state.user ? <Home /> : <Login />}</div>;
+//   }
+// }
+
+// export default Dashboard;

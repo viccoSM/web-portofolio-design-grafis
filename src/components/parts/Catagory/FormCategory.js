@@ -15,19 +15,22 @@ function FormCategory() {
     <>
       <form className="form-category" onSubmit={handleSubmit}>
         <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Title"
-            id="category"
-            value={category}
-            onChange={handleChange}
-          />
+          <div className="create category input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Create Category"
+              id="category"
+              value={category}
+              onChange={handleChange}
+            />
+            <div className="input-group-append">
+              <button className="btn btn-primary" onClick={createDataUser}>
+                Create
+              </button>
+            </div>
+          </div>
         </div>
-
-        <button className="btn btn-primary" onClick={createDataUser}>
-          Create
-        </button>
       </form>
     </>
   );

@@ -20,7 +20,7 @@ export const useFormCategory = () => {
       .database()
       .ref("users/" + userData.uid + "/category")
       .push({
-        category: category,
+        tittle: category,
       });
   };
   return {

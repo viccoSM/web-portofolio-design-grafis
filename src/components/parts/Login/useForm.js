@@ -40,7 +40,7 @@ const useForm = () => {
             emailVerified: res.user.emailVerified,
           };
           console.log("success", res);
-          history.push("/Home");
+          // history.push("/Home");
           resolve(dataUser);
         })
         .catch((error) => {

@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import firebase from "../../../config/Firebase/Firebase";
 import { useHistory } from "react-router-dom";
-import FormCategory from "../../parts/Catagory/FormCategory";
+import firebase from "../Firebase/Firebase";
 
-const Home = () => {
+const Logout = () => {
   const history = useHistory();
   const handleLogout = () => {
     firebase
@@ -23,16 +21,7 @@ const Home = () => {
       });
   };
 
-  return (
-    <section className="hero">
-      <nav>
-        <h2>Welcome</h2>
-        <button onClick={handleLogout}>Logout</button>
-        <FormCategory />
-        {/* <Link to="/formategory">category</Link> */}
-      </nav>
-    </section>
-  );
+  return { handleLogout };
 };
 
-export default Home;
+export default Logout;

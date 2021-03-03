@@ -8,12 +8,12 @@ const useFormRegister = (validate) => {
     lastName: "",
     university: "",
     major: "",
+    gender: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [Login, setlogin] = useState(false);
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
@@ -26,7 +26,6 @@ const useFormRegister = (validate) => {
   };
 
   const handleRegisterSubmit = () => {
-    // isLogin();
     return new Promise((resolve, reject) => {
       firebase
         .auth()
@@ -35,23 +34,18 @@ const useFormRegister = (validate) => {
           localStorage.setItem("userData", JSON.stringify(res));
           // Signed in
           // ...
-          setlogin(true);
           console.log("success", res);
-          resolve(true);
+          resolve(res);
         })
         .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
+          const errorCode = error.code;
+          const errorMessage = error.message;
           // ..
+          alert("login Failed");
           console.log(errorCode, errorMessage);
-          setlogin(false);
-          reject(false);
         });
     });
   };
-  // const createDataRegister = () => {
-  //   console.log("user/information", userData.user.uid);
-  // };
 
   const registerSubmit = async () => {
     const res = await handleRegisterSubmit().catch((err) => err);
@@ -67,9 +61,9 @@ const useFormRegister = (validate) => {
           major: values.major,
           university: values.university,
           email: values.email,
+          gender: values.gender,
         });
       history.push("/login");
-      // createDataRegister();
       console.log("success", res);
     } else {
       console.log("login failed");
@@ -87,7 +81,6 @@ const useFormRegister = (validate) => {
     handleRegisterSubmit,
     handleSubmit,
     registerSubmit,
-    // createDataUser,
     values,
     errors,
   };

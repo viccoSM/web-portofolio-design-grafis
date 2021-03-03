@@ -1,4 +1,4 @@
-.landingpage.jumbotron {
+.aboutus.jumbotron {
   margin: 0;
   padding: 0;
   background-blend-mode: multiply;
@@ -6,14 +6,14 @@
   height: 560px;
 }
 
-.display-4 {
+.aboutus.display-4 {
   margin-top: 30px;
   font-weight: 400;
   color: rgb(22, 22, 22);
   text-shadow: 1px 1px 10px rgb(31, 30, 30);
 }
 
-.lead {
+.aboutus.lead {
   color: rgb(22, 22, 22);
   text-shadow: 1px 1px 10px rgb(31, 30, 30);
 }
