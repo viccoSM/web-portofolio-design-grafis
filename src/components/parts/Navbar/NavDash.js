@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logout from "../../../config/Logout/Logout";
+import Logout from "../../../config/Firebase/Logout/Logout";
 import SearchBar from "../SearchBar/SearchBar";
 
 import "./Navbar.css";

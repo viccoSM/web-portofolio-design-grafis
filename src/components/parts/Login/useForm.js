@@ -30,18 +30,18 @@ const useForm = () => {
         .then((res) => {
           // Signed in
           // ...
-          // const dataUser = localStorage.setItem(
-          //   "userData",
-          //   JSON.stringify(res)
-          // );
-          const dataUser = {
-            email: res.user.email,
-            uid: res.user.uid,
-            emailVerified: res.user.emailVerified,
-          };
+          const dataUser = localStorage.setItem(
+            "userData",
+            JSON.stringify(res)
+          );
+          // const dataUser = {
+          //   email: res.user.email,
+          //   uid: res.user.uid,
+          //   emailVerified: res.user.emailVerified,
+          // };
           console.log("success", res);
           // history.push("/Home");
-          resolve(dataUser);
+          resolve(res);
         })
         .catch((error) => {
           var errorCode = error.code;

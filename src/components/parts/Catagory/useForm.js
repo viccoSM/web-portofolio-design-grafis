@@ -14,11 +14,11 @@ export const useFormCategory = () => {
 
   const createDataUser = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
-    console.log("user", userData.uid);
+    console.log("user", userData.user.uid);
     console.log("category", category);
     firebase
       .database()
-      .ref("users/" + userData.uid + "/category")
+      .ref("users/" + userData.user.uid + "/category")
       .push({
         tittle: category,
       });

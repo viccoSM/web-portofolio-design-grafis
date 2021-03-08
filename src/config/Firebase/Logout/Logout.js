@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import firebase from "../Firebase/Firebase";
+import firebase from "../Firebase";
 
 const Logout = () => {
   const history = useHistory();

@@ -18,9 +18,8 @@ function Card({ title, imageUrl, body }) {
 
       <div className="btn">
         <button>Edit</button>
-        <button>
-          <a>View category</a>
-        </button>
+        <button>View</button>
+        <button>Delete</button>
       </div>
     </div>
   );

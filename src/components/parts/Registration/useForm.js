@@ -54,7 +54,7 @@ const useFormRegister = (validate) => {
       console.log("uer", userData.user.uid);
       firebase
         .database()
-        .ref("users/" + userData.user.uid)
+        .ref("users/" + userData.user.uid + "/information")
         .push({
           firstName: values.firstName,
           lastName: values.lastName,

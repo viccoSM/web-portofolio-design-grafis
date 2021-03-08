@@ -8,7 +8,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import firebase from "./config/Firebase/Firebase";
-console.log("Firebase", firebase);
+// console.log("Firebase", firebase);
 
 ReactDOM.render(
   <React.StrictMode>

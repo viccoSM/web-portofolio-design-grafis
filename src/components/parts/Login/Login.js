@@ -34,7 +34,7 @@ const Login = () => {
   const loginSubmit = async () => {
     const res = await handleLoginSubmit().catch((err) => err);
     if (res) {
-      localStorage.setItem("userData", JSON.stringify(res));
+      // localStorage.setItem("userData", JSON.stringify(res));
       console.log("Login success", res);
       history.push("/Home");
     } else {
