@@ -1,0 +1,19 @@
+.upload.container {
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0px 1px 10px;
+    padding: 5%;
+  }
+  .form-upload p {
+    color: red;
+    font-size: smaller;
+  }
+  
+  @media (max-width: 520px) {
+    .upload.container {
+      width: 100%;
+      margin-top: 0;
+      box-shadow: none;
+    }
+  }

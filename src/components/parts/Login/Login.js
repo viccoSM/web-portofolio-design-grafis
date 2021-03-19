@@ -36,7 +36,7 @@ const Login = () => {
     if (res) {
       // localStorage.setItem("userData", JSON.stringify(res));
       console.log("Login success", res);
-      history.push("/Home");
+      history.push("/dash/Home");
     } else {
       console.log("login failed");
       alert("Login Failed");

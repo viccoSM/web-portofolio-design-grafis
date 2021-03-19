@@ -29,20 +29,11 @@ function Routes() {
             <Navbar />
             <AboutUs />
           </Route>
-          <Route path="/home" exact component={Dash} />
+          <Route path="/Dash" component={Dash} />
         </Switch>
         <Footer />
       </Router>
     </>
-    // <>
-
-    //   <Router>
-    //     <Switch>
-    //       <Route path="/" exact component={RoutesHome} />
-    //       <Route path="/dashboard" exact component={RoutesDash} />
-    //     </Switch>
-    //   </Router>
-    // </>
   );
 }
 

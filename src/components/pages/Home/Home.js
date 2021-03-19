@@ -4,31 +4,14 @@ import FormCategory from "../../parts/Catagory/FormCategory";
 import Cards from "../../parts/Cards/Cards";
 import Profile from "../../parts/Profile/Profile";
 import useForm from "./useForm";
+import { useHistory } from "react-router";
 
 const Home = () => {
+  const history = useHistory();
   const { getProfilApi, profil, getCategoryApi, categories } = useForm();
-  // const [profil, setProfil] = useState([]);
   useEffect(() => {
     getProfilApi();
     getCategoryApi();
-    // const userData = JSON.parse(localStorage.getItem("userData"));
-    // axios
-    //   .get(
-    //     "https://portofolio-desain-grafis-default-rtdb.firebaseio.com/users/" +
-    //       userData.user.uid +
-    //       "/information.json"
-    //   )
-    //   .then((res) => {
-    //     // console.log("res", res);
-    //     const infoData = [];
-    //     Object.keys(res.data).map((key) => {
-    //       infoData.push({
-    //         id: key,
-    //         data: res.data[key],
-    //       });
-    //     });
-    //     setProfil(infoData);
-    //   });
   });
   return (
     <>
@@ -49,19 +32,26 @@ const Home = () => {
         </div>
       </div>
       <div className="container">
-        <div className="profile"></div>
         <div className="category">
           <div className="d-flex flex-row-reverse">
             <FormCategory />
           </div>
           <div class="d-flex flex-wrap">
-            {categories.length > 0 ? (
-              <>
-                {categories.map((info) => {
-                  return <Cards key={info.id} title={info.data.tittle} />;
-                })}
-              </>
-            ) : null}
+            {categories.map((info) => {
+              return (
+                <Cards
+                  key={info.id}
+                  title={info.data.tittle}
+                  view={() => {
+                    history.push(`/dash/category/${info.id}`);
+                    const idCategory = localStorage.setItem(
+                      "idCategory",
+                      JSON.stringify(info.id)
+                    );
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

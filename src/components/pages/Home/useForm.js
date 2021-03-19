@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 const useForm = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -23,10 +24,13 @@ const useForm = () => {
           });
         });
         setProfil(infoData);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
-  const getCategoryApi = () => {
+  const getCategoryApi = async () => {
     axios
       .get(
         "https://portofolio-desain-grafis-default-rtdb.firebaseio.com/users/" +
@@ -42,10 +46,23 @@ const useForm = () => {
           });
         });
         setCategories(infoData);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
-
-  return { getProfilApi, profil, getCategoryApi, categories };
+  const history = useHistory();
+  // const dataStorage = localStorage.setItem(
+  //   "categories",
+  //   JSON.stringify(categories)
+  // );
+  return {
+    getProfilApi,
+    profil,
+    getCategoryApi,
+    categories,
+    // dataStorage,
+  };
 };
 
 export default useForm;

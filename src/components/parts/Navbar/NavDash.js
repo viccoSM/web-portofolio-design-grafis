@@ -1,12 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Logout from "../../../config/Firebase/Logout/Logout";
+import { Link, useHistory } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
+import firebase from "../../../config/Firebase/Firebase";
 
 import "./Navbar.css";
 
 const NavDash = () => {
-  const { handleLogout } = Logout();
+  const history = useHistory();
+  const handleLogout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then((res) => {
+        // Signed in
+        // ...
+        console.log("success", res);
+        history.push("/");
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+        console.log(errorCode, errorMessage);
+      });
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,11 +61,9 @@ const NavDash = () => {
                 <SearchBar />
               </li>
               <li className="nav-item">
-                <Link to="">
-                  <button class="btn btn-primary" onClick={handleLogout}>
-                    Log Out
-                  </button>
-                </Link>
+                <button class="btn btn-primary" onClick={handleLogout}>
+                  Log Out
+                </button>
               </li>
             </ul>
           </form>

@@ -41,7 +41,7 @@ const useFormRegister = (validate) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           // ..
-          alert("login Failed");
+          alert("register Failed");
           console.log(errorCode, errorMessage);
         });
     });
@@ -66,7 +66,7 @@ const useFormRegister = (validate) => {
       history.push("/login");
       console.log("success", res);
     } else {
-      console.log("login failed");
+      alert("register Failed");
     }
   };
 
