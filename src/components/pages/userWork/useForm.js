@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const useFormUserWork = () => {
-  const [images, setImages] = useState();
-  const userData = JSON.parse(localStorage.getItem("userData"));
-  const idCategory = JSON.parse(localStorage.getItem("idCategory"));
+  const [images, setImages] = useState([]);
 
-  const getImageApi = () => {
+  const getImageApi = async () => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const idCategory = JSON.parse(localStorage.getItem("idCategory"));
+
     axios
       .get(
         `https://portofolio-desain-grafis-default-rtdb.firebaseio.com/users/${userData.user.uid}/files/${idCategory}.json`
@@ -19,8 +20,9 @@ const useFormUserWork = () => {
             data: res.data[key],
           });
         });
+        // console.log("info", infoData);
+        // setImages(infoData);
         setImages(infoData);
-        console.log("img", images);
       })
       .catch((error) => {
         console.log(error);

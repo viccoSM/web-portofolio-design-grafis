@@ -23,7 +23,6 @@ export const useFormUpload = () => {
     e.preventDefault();
   };
   const userData = JSON.parse(localStorage.getItem("userData"));
-  const idCategory = JSON.parse(localStorage.getItem("idCategory"));
 
   const uploadFileImg = () => {
     return new Promise(async (resolve, reject) => {
@@ -50,6 +49,7 @@ export const useFormUpload = () => {
   const uploadFile = async () => {
     const res = await uploadFileImg().catch((err) => err);
     if (res) {
+      const idCategory = JSON.parse(localStorage.getItem("idCategory"));
       console.log("user", userData.user.uid);
       console.log("category", desc);
       firebase
@@ -58,8 +58,15 @@ export const useFormUpload = () => {
         .push({
           description: desc,
           file: res,
+        })
+        .then((res) => {
+          console.log("success", res);
+          history.push(`/dash/category/${idCategory}`);
+        })
+        .catch((err) => {
+          console.log("error", err);
+          alert("upload failed");
         });
-      history.push(`/dash/category/${idCategory}`);
     }
   };
 

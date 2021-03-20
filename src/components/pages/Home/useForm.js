@@ -46,6 +46,7 @@ const useForm = () => {
           });
         });
         setCategories(infoData);
+        // console.log("categories", categories);
       })
       .catch((error) => {
         console.log(error);

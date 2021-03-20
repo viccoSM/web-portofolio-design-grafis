@@ -1,7 +1,7 @@
 import react from "react";
 import "./Cards.css";
 
-function Card(props) {
+function Cards(props) {
   return (
     <div className="card-container">
       <div className="image-container">
@@ -25,4 +25,4 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default Cards;
