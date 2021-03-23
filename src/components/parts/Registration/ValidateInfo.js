@@ -7,6 +7,11 @@ export default function validateInfo(values) {
   if (!values.lastName) {
     errors.lastName = "Last name required";
   }
+
+  if (!values.userName) {
+    errors.userName = "Username required";
+  }
+
   if (!values.university) {
     errors.university = "University required";
   }

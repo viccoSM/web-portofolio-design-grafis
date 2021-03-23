@@ -6,6 +6,7 @@ const CardsImages = (props) => {
     <>
       <div className="card-container">
         <div className="card-content">
+          <h6>{props.userName}</h6>
           <div className="image-container">
             <img src={props.imageUrl} alt="" />
           </div>

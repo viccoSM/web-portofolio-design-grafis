@@ -23,7 +23,6 @@ export const useFormUpload = () => {
     e.preventDefault();
   };
   const userData = JSON.parse(localStorage.getItem("userData"));
-
   const uploadFileImg = () => {
     return new Promise(async (resolve, reject) => {
       const storageRef = firebase.storage().ref(`images/`);
@@ -49,13 +48,16 @@ export const useFormUpload = () => {
   const uploadFile = async () => {
     const res = await uploadFileImg().catch((err) => err);
     if (res) {
+      const userName = JSON.parse(localStorage.getItem("userName"));
       const idCategory = JSON.parse(localStorage.getItem("idCategory"));
+      // console.log("username", userName);
       console.log("user", userData.user.uid);
       console.log("category", desc);
       firebase
         .database()
         .ref("users/" + userData.user.uid + "/files/" + idCategory)
         .push({
+          user: userName,
           description: desc,
           file: res,
         })

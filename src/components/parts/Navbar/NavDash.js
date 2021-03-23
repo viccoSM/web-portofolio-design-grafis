@@ -45,7 +45,7 @@ const NavDash = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/">
+              <Link to="/dash/Home">
                 <a className="nav-link">Home</a>
               </Link>
             </li>

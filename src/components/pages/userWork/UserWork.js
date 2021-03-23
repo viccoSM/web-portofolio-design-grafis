@@ -8,6 +8,7 @@ import useFormUserWork from "./useForm";
 const UserWork = () => {
   const { images, getImageApi } = useFormUserWork();
   const history = useHistory();
+
   useEffect(() => {
     getImageApi();
   });
@@ -30,6 +31,7 @@ const UserWork = () => {
               return (
                 <CardsImages
                   key={info.id}
+                  userName={info.data.user}
                   imageUrl={info.data.file}
                   body={info.data.description}
                 />

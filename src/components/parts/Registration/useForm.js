@@ -6,6 +6,7 @@ const useFormRegister = (validate) => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
+    userName: "",
     university: "",
     major: "",
     gender: "",
@@ -58,6 +59,7 @@ const useFormRegister = (validate) => {
         .push({
           firstName: values.firstName,
           lastName: values.lastName,
+          userName: values.userName,
           major: values.major,
           university: values.university,
           email: values.email,

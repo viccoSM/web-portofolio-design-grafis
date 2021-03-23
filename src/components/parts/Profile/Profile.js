@@ -1,6 +1,13 @@
 import React from "react";
 
-const Profile = ({ firstName, lastName, university, major, email }) => {
+const Profile = ({
+  userName,
+  firstName,
+  lastName,
+  university,
+  major,
+  email,
+}) => {
   return (
     <>
       <div className="profile container">
@@ -10,6 +17,7 @@ const Profile = ({ firstName, lastName, university, major, email }) => {
           </div>
           <div className="col-md-auto align-self-center">
             <blockquote>
+              <h5>{userName}</h5>
               <h5>
                 {firstName} {lastName} {}
               </h5>

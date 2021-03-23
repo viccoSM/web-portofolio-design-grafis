@@ -50,6 +50,19 @@ const Registration = () => {
                 <input
                   type="text"
                   className="form-control"
+                  placeholder="Username"
+                  name="userName"
+                  id="userName"
+                  value={values.userNamr}
+                  onChange={handleChange}
+                />
+
+                {errors.userName && <p>{errors.userName}</p>}
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
                   placeholder="University"
                   name="university"
                   id="university"

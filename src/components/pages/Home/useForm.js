@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import firebase from "../../../config/Firebase/Firebase";
 
 const useForm = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
@@ -27,6 +28,19 @@ const useForm = () => {
       })
       .catch((error) => {
         console.log(error);
+      });
+  };
+  const DeleteCategory = () => {
+    const idCategory = JSON.parse(localStorage.getItem("idCategory"));
+    firebase
+      .database()
+      .ref("users/" + userData.user.uid + "/category/" + idCategory)
+      .remove()
+      .then((res) => {
+        console.log("success", res);
+      })
+      .catch((err) => {
+        console.log("error", err);
       });
   };
 
@@ -58,6 +72,7 @@ const useForm = () => {
   //   JSON.stringify(categories)
   // );
   return {
+    DeleteCategory,
     getProfilApi,
     profil,
     getCategoryApi,

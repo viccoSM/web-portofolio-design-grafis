@@ -21,6 +21,9 @@ export const useFormCategory = () => {
       .ref("users/" + userData.user.uid + "/category")
       .push({
         tittle: category,
+      })
+      .catch((err) => {
+        console.log("error", err);
       });
   };
   return {

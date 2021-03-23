@@ -7,7 +7,6 @@ const useFormUserWork = () => {
   const getImageApi = async () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const idCategory = JSON.parse(localStorage.getItem("idCategory"));
-
     axios
       .get(
         `https://portofolio-desain-grafis-default-rtdb.firebaseio.com/users/${userData.user.uid}/files/${idCategory}.json`
