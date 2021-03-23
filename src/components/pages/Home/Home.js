@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 // import firebase from "../../../config/Firebase/Firebase";
 import FormCategory from "../../parts/Catagory/FormCategory";
-import Cards from "../../parts/Cards/Cards";
+// import Cards from "../../parts/Cards/Cards";
 import Profile from "../../parts/Profile/Profile";
 import useForm from "./useForm";
 import { useHistory } from "react-router";
+import CardsCategory from "../../parts/Cards/CardsCategory";
 
 const Home = () => {
   const history = useHistory();
@@ -39,7 +40,7 @@ const Home = () => {
           <div class="d-flex flex-wrap">
             {categories.map((info) => {
               return (
-                <Cards
+                <CardsCategory
                   key={info.id}
                   title={info.data.tittle}
                   view={() => {

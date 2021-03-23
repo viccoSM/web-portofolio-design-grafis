@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import Cards from "../../parts/Cards/Cards";
+// import CardsCategory from "../../parts/Cards/CardsCategory";
+// import Cards from "../../parts/Cards/CardsCategory";
+import CardsImages from "../../parts/Cards/CardsImages";
 import useFormUserWork from "./useForm";
 
 const UserWork = () => {
@@ -26,12 +28,16 @@ const UserWork = () => {
           <div class="d-flex flex-wrap">
             {images.map((info) => {
               return (
-                // <Cards key={info.id} imageUrl={info.data.file} />
-                <img
+                <CardsImages
                   key={info.id}
-                  src={info.data.file}
-                  style={{ width: 200 }}
+                  imageUrl={info.data.file}
+                  body={info.data.description}
                 />
+                // <img
+                //   key={info.id}
+                //   src={info.data.file}
+                //   style={{ width: 200 }}
+                // />
               );
             })}
           </div>

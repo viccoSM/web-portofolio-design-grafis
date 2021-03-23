@@ -20,9 +20,9 @@ const useFormUserWork = () => {
             data: res.data[key],
           });
         });
-        // console.log("info", infoData);
         // setImages(infoData);
         setImages(infoData);
+        // console.log("info", infoData);
       })
       .catch((error) => {
         console.log(error);

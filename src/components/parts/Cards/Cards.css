@@ -14,7 +14,19 @@
 
 .image-container {
   overflow: hidden;
-  height: 100px;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  /* background-color: rgb(14, 13, 13); */
+  /* height: 200px; */
+}
+
+.image-container img {
+  display: block;
+  /* margin: auto; */
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  width: auto;
 }
 
 .card-content {
@@ -32,9 +44,15 @@ p {
   margin-bottom: 0.5rem;
 }
 
+.card-body {
+  margin-top: 0;
+  justify-content: end;
+}
+
 .btn {
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  margin: 0;
 }
 
 .btn button {
@@ -42,7 +60,8 @@ p {
   background-color: white;
   border: none;
   transition: 0.2s;
-  margin-bottom: 0.5rem;
+  display: flex;
+  /* margin-bottom: 0.5rem; */
 }
 
 .btn button:hover {
