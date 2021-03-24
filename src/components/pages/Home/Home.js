@@ -63,13 +63,17 @@ const Home = () => {
                       "idCategory",
                       JSON.stringify(info.id)
                     );
-                    await DeleteCategory();
+                    DeleteCategory();
                   }}
                   view={() => {
                     history.push(`/dash/category/${info.id}`);
                     const idCategory = localStorage.setItem(
                       "idCategory",
                       JSON.stringify(info.id)
+                    );
+                    const tittleCat = localStorage.setItem(
+                      "tittleCat",
+                      JSON.stringify(info.data.tittle)
                     );
                   }}
                 />

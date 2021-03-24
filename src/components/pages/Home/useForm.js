@@ -32,9 +32,20 @@ const useForm = () => {
   };
   const DeleteCategory = () => {
     const idCategory = JSON.parse(localStorage.getItem("idCategory"));
-    firebase
+    const deleteCat = firebase
       .database()
       .ref("users/" + userData.user.uid + "/category/" + idCategory)
+      .remove()
+      .then((res) => {
+        console.log("success", res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+
+    const deleteImgCat = firebase
+      .database()
+      .ref("files/" + idCategory)
       .remove()
       .then((res) => {
         console.log("success", res);

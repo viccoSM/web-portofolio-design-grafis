@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-// import CardsCategory from "../../parts/Cards/CardsCategory";
-// import Cards from "../../parts/Cards/CardsCategory";
+import React, { useEffect } from "react";
 import CardsImages from "../../parts/Cards/CardsImages";
-import useFormUserWork from "./useForm";
-
-const UserWork = () => {
-  const { images, getImageApi, getData } = useFormUserWork();
-  const history = useHistory();
-
+import SearchBar from "../../parts/SearchBar/SearchBar";
+import useFormBeranda from "./useForm";
+const Beranda = () => {
+  const { getImageApi, images } = useFormBeranda();
   useEffect(() => {
     getImageApi();
-    // getData();
+    // console.log("img", images);
+    // getFileApi();
   }, []);
   return (
     <>
       <div className="container">
         <div className="category">
           <div className="d-flex flex-row-reverse">
-            <button
+            <SearchBar />
+            {/* <button
               class="btn btn-primary"
               onClick={() => {
-                history.push(`/dash/upload`);
+                // history.push(`/dash/upload`);
               }}
             >
               Upload
-            </button>
+            </button> */}
           </div>
           <div class="d-flex flex-wrap">
             {images.map((info) => {
@@ -45,4 +42,4 @@ const UserWork = () => {
   );
 };
 
-export default UserWork;
+export default Beranda;

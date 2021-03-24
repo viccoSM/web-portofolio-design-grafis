@@ -15,7 +15,7 @@ const NavDash = () => {
         // Signed in
         // ...
         console.log("success", res);
-        history.push("/");
+        // history.push("/");
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -45,23 +45,38 @@ const NavDash = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/dash/Home">
+              <Link
+                // to="/dash/Home"
+                onClick={() => {
+                  history.push("/dash/Home");
+                  window.location.reload(false);
+                }}
+              >
                 <a className="nav-link">Home</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/aboutus">
-                <a className="nav-link">About Us</a>
+              <Link
+                // to="/dash/beranda"
+                onClick={() => {
+                  history.push("/dash/beranda");
+                  window.location.reload(false);
+                }}
+              >
+                <a className="nav-link">Beranda</a>
               </Link>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <SearchBar />
-              </li>
-              <li className="nav-item">
-                <button class="btn btn-primary" onClick={handleLogout}>
+                <button
+                  class="btn btn-primary"
+                  onClick={() => {
+                    handleLogout();
+                    history.push("/");
+                  }}
+                >
                   Log Out
                 </button>
               </li>

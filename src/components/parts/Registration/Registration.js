@@ -46,19 +46,7 @@ const Registration = () => {
 
                 {errors.lastName && <p>{errors.lastName}</p>}
               </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Username"
-                  name="userName"
-                  id="userName"
-                  value={values.userNamr}
-                  onChange={handleChange}
-                />
 
-                {errors.userName && <p>{errors.userName}</p>}
-              </div>
               <div className="form-group">
                 <input
                   type="text"
@@ -87,6 +75,19 @@ const Registration = () => {
               </div>
             </div>
             <div className="col-md">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Username"
+                  name="userName"
+                  id="userName"
+                  value={values.userName}
+                  onChange={handleChange}
+                />
+
+                {errors.userName && <p>{errors.userName}</p>}
+              </div>
               <div className="form-group">
                 <input
                   type="text"

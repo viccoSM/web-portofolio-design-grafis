@@ -48,7 +48,7 @@ const UploadImg = () => {
             <label htmlFor="">Description</label>
             <br />
             <textarea
-              name=""
+              // name=""
               id="desc"
               cols="5"
               rows="3"

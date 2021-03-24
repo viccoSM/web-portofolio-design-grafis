@@ -1,33 +1,87 @@
 import axios from "axios";
 import React, { useState } from "react";
+import firebase from "../../../config/Firebase/Firebase";
 
 const useFormUserWork = () => {
   const [images, setImages] = useState([]);
 
   const getImageApi = async () => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const idCategory = JSON.parse(localStorage.getItem("idCategory"));
-    axios
-      .get(
-        `https://portofolio-desain-grafis-default-rtdb.firebaseio.com/users/${userData.user.uid}/files/${idCategory}.json`
-      )
-      .then((res) => {
-        const infoData = [];
-        Object.keys(res.data).map((key) => {
-          infoData.push({
-            id: key,
-            data: res.data[key],
+    return new Promise((resolve, reject) => {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const idCategory = JSON.parse(localStorage.getItem("idCategory"));
+      const starCountRef = firebase
+        .database()
+        .ref("files/")
+        .orderByChild("idCategory")
+        .equalTo(idCategory);
+      starCountRef.on("value", (snapshot) => {
+        // const data = snapshot.val();
+        if (snapshot.val() === null) {
+          console.log("errror");
+        } else {
+          const infoData = [];
+          // console.log("data", snapshot.val());
+          Object.keys(snapshot.val()).map((key) => {
+            infoData.push({
+              id: key,
+              data: snapshot.val()[key],
+            });
           });
-        });
-        // setImages(infoData);
-        setImages(infoData);
+          resolve(setImages(infoData));
+        }
         // console.log("info", infoData);
-      })
-      .catch((error) => {
-        console.log(error);
+        // setImages(infoData);
+        // console.log("datainfo", snapshot.val());
       });
+      // .catch((err) => {
+      //   console.log("error", err);
+      // });
+      //   // console.log("info", images);
+      //   // updateStarCount(postElement, data);
+      // });
+      // .catch((err) => {
+      //   console.log("err", err);
+      // });
+      //   axios
+      //     .get(
+      //       `https://portofolio-desain-grafis-default-rtdb.firebaseio.com/files/${idCategory}.json`
+      //     )
+      //     .then((res) => {
+      //       const infoData = [];
+      //       Object.keys(res.data).map((key) => {
+      //         infoData.push({
+      //           id: key,
+      //           data: res.data[key],
+      //         });
+      //       });
+      //       // setImages(infoData);
+      //       setImages(infoData);
+      //       console.log("img", images);
+      //       // console.log("info", infoData);
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+    });
   };
-  return { images, getImageApi };
+  const getData = () => {
+    const res = getImageApi().catch((err) => {
+      console.log(err);
+    });
+    if (res === null) {
+      console.log(res);
+      // const infoData = [];
+      // Object.keys(res).map((key) => {
+      //   infoData.push({
+      //     id: key,
+      //     data: res[key],
+      //   });
+      // });
+      // setImages(res);
+    } else {
+      console.log("succes", res);
+    }
+  };
+  return { images, getImageApi, getData };
 };
 
 export default useFormUserWork;

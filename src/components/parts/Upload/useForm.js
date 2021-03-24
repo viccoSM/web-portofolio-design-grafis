@@ -55,8 +55,9 @@ export const useFormUpload = () => {
       console.log("category", desc);
       firebase
         .database()
-        .ref("users/" + userData.user.uid + "/files/" + idCategory)
+        .ref("files/")
         .push({
+          idCategory: idCategory,
           user: userName,
           description: desc,
           file: res,
