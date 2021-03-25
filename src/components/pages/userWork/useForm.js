@@ -63,25 +63,22 @@ const useFormUserWork = () => {
       //       console.log(error);
     });
   };
-  const getData = () => {
-    const res = getImageApi().catch((err) => {
-      console.log(err);
-    });
-    if (res === null) {
-      console.log(res);
-      // const infoData = [];
-      // Object.keys(res).map((key) => {
-      //   infoData.push({
-      //     id: key,
-      //     data: res[key],
-      //   });
-      // });
-      // setImages(res);
-    } else {
-      console.log("succes", res);
-    }
+  const deleteImg = () => {
+    const idImg = JSON.parse(localStorage.getItem("idImg"));
+
+    firebase
+      .database()
+      .ref("files/" + idImg)
+      .remove()
+      .then((res) => {
+        console.log("success", res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
   };
-  return { images, getImageApi, getData };
+
+  return { images, getImageApi, deleteImg };
 };
 
 export default useFormUserWork;

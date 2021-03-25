@@ -2,9 +2,12 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BiShare, BiTrash } from "react-icons/bi";
 import CardsImages from "../../parts/Cards/CardsImages";
+import useFormSaved from "./useForm";
 
 const SavesFiles = () => {
   const [images, setImages] = useState([]);
+  const { deleteImg } = useFormSaved();
+
   const getImages = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     axios
@@ -46,6 +49,13 @@ const SavesFiles = () => {
                   userName={info.data.user}
                   imageUrl={info.data.file}
                   body={info.data.description}
+                  delete={() => {
+                    const idImg = localStorage.setItem(
+                      "idImg",
+                      JSON.stringify(info.id)
+                    );
+                    deleteImg();
+                  }}
                   iconDelete={<BiTrash />}
                   iconShare={<BiShare />}
                 />

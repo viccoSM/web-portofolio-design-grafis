@@ -66,7 +66,7 @@ const Home = () => {
                   title={info.data.tittle}
                   textDelete={"Delete"}
                   textEdit={"Edit"}
-                  delete={async () => {
+                  delete={() => {
                     const idCategory = localStorage.setItem(
                       "idCategory",
                       JSON.stringify(info.id)

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BiComment, BiSave, BiShare } from "react-icons/bi";
+import { BiComment, BiLike, BiSave, BiShare } from "react-icons/bi";
 import CardsImages from "../../parts/Cards/CardsImages";
 import SearchBar from "../../parts/SearchBar/SearchBar";
 import useFormBeranda from "./useForm";
@@ -28,6 +28,7 @@ const Beranda = () => {
                   iconComment={<BiComment />}
                   iconShare={<BiShare />}
                   iconSave={<BiSave />}
+                  iconLike={<BiLike />}
                   save={() => {
                     saveImages(
                       info.data.description,

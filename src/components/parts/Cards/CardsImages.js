@@ -27,7 +27,7 @@ const CardsImages = (props) => {
               {/* <BiSave /> */}
               {props.iconSave}
             </button>
-            <button>
+            <button onClick={() => props.delete()}>
               {/* <BiTrash /> */}
               {props.iconDelete}
             </button>

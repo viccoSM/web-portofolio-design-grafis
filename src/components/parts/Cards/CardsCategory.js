@@ -16,7 +16,7 @@ function CardsCategory(props) {
       <div className="btn">
         <button>{props.textEdit}</button>
         <button onClick={() => props.view(props.id)}>View</button>
-        <button onClick={props.delete}>{props.textDelete}</button>
+        <button onClick={() => props.delete()}>{props.textDelete}</button>
       </div>
     </div>
   );

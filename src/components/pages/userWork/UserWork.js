@@ -7,12 +7,11 @@ import CardsImages from "../../parts/Cards/CardsImages";
 import useFormUserWork from "./useForm";
 
 const UserWork = () => {
-  const { images, getImageApi, getData } = useFormUserWork();
+  const { images, getImageApi, deleteImg } = useFormUserWork();
   const history = useHistory();
 
   useEffect(() => {
     getImageApi();
-    // getData();
   }, []);
   return (
     <>
@@ -36,6 +35,13 @@ const UserWork = () => {
                   userName={info.data.user}
                   imageUrl={info.data.file}
                   body={info.data.description}
+                  delete={() => {
+                    const idImg = localStorage.setItem(
+                      "idImg",
+                      JSON.stringify(info.id)
+                    );
+                    deleteImg();
+                  }}
                   iconDelete={<BiTrash />}
                   iconLike={<BiLike />}
                   iconShare={<BiShare />}
