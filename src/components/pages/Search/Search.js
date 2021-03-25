@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BiComment, BiLike, BiSave, BiShare } from "react-icons/bi";
+import firebase from "../../../config/Firebase/Firebase";
 import CardsImages from "../../parts/Cards/CardsImages";
-import SearchBar from "../../parts/SearchBar/SearchBar";
-import useFormBeranda from "./useForm";
-const Beranda = () => {
-  const { getImageApi, images, saveImages } = useFormBeranda();
+import useFormSearch from "./useform";
+
+const Search = () => {
+  const { getImageApi, saveImages, images } = useFormSearch();
+
   useEffect(() => {
     getImageApi();
-    // console.log("img", images);
-    // getFileApi();
   }, []);
   return (
     <>
@@ -44,4 +44,4 @@ const Beranda = () => {
   );
 };
 
-export default Beranda;
+export default Search;

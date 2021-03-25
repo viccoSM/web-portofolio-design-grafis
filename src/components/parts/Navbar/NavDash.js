@@ -70,6 +70,9 @@ const NavDash = () => {
           <form className="form-inline my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
+                <SearchBar />
+              </li>
+              <li className="nav-item">
                 <button
                   class="btn btn-primary"
                   onClick={() => {
