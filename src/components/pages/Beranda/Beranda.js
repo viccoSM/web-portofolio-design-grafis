@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
+import { BiComment, BiSave, BiShare } from "react-icons/bi";
 import CardsImages from "../../parts/Cards/CardsImages";
 import SearchBar from "../../parts/SearchBar/SearchBar";
 import useFormBeranda from "./useForm";
 const Beranda = () => {
-  const { getImageApi, images } = useFormBeranda();
+  const { getImageApi, images, saveImages } = useFormBeranda();
   useEffect(() => {
     getImageApi();
     // console.log("img", images);
@@ -15,14 +16,6 @@ const Beranda = () => {
         <div className="category">
           <div className="d-flex flex-row-reverse">
             <SearchBar />
-            {/* <button
-              class="btn btn-primary"
-              onClick={() => {
-                // history.push(`/dash/upload`);
-              }}
-            >
-              Upload
-            </button> */}
           </div>
           <div class="d-flex flex-wrap">
             {images.map((info) => {
@@ -32,6 +25,16 @@ const Beranda = () => {
                   userName={info.data.user}
                   imageUrl={info.data.file}
                   body={info.data.description}
+                  iconComment={<BiComment />}
+                  iconShare={<BiShare />}
+                  iconSave={<BiSave />}
+                  save={() => {
+                    saveImages(
+                      info.data.description,
+                      info.data.file,
+                      info.data.user
+                    );
+                  }}
                 />
               );
             })}

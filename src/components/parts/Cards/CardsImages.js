@@ -12,20 +12,24 @@ const CardsImages = (props) => {
           </div>
           <div className="btn icons">
             <button>
-              <BiLike />
+              {props.iconLike}
               <p>{props.likes}</p>
             </button>
             <button onClick={() => props.view(props.id)}>
-              <BiComment />
+              {/* <BiComment /> */}
+              {props.iconComment}
             </button>
             <button>
-              <BiShare />
+              {/* <BiShare /> */}
+              {props.iconShare}
+            </button>
+            <button onClick={() => props.save()}>
+              {/* <BiSave /> */}
+              {props.iconSave}
             </button>
             <button>
-              <BiSave />
-            </button>
-            <button>
-              <BiTrash />
+              {/* <BiTrash /> */}
+              {props.iconDelete}
             </button>
           </div>
           {/* <div className="card-title">

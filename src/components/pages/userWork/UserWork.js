@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BiComment, BiLike, BiShare, BiTrash } from "react-icons/bi";
 import { useHistory } from "react-router";
 // import CardsCategory from "../../parts/Cards/CardsCategory";
 // import Cards from "../../parts/Cards/CardsCategory";
@@ -35,6 +36,10 @@ const UserWork = () => {
                   userName={info.data.user}
                   imageUrl={info.data.file}
                   body={info.data.description}
+                  iconDelete={<BiTrash />}
+                  iconLike={<BiLike />}
+                  iconShare={<BiShare />}
+                  iconComment={<BiComment />}
                 />
               );
             })}

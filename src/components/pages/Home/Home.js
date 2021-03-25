@@ -53,11 +53,19 @@ const Home = () => {
             <FormCategory />
           </div>
           <div class="d-flex flex-wrap">
+            <CardsCategory
+              title={"Saved Files"}
+              view={() => {
+                history.push(`/dash/savedfiles`);
+              }}
+            />
             {categories.map((info) => {
               return (
                 <CardsCategory
                   key={info.id}
                   title={info.data.tittle}
+                  textDelete={"Delete"}
+                  textEdit={"Edit"}
                   delete={async () => {
                     const idCategory = localStorage.setItem(
                       "idCategory",

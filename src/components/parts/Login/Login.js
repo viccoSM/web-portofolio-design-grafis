@@ -8,27 +8,6 @@ import useForm from "./useForm";
 
 const Login = () => {
   const { handleLoginSubmit, handleChange, handleSubmit } = useForm();
-  // const { isLogin, user } = useSelector((state) => state.AuthReducer);
-  // const dispatch = useDispatch();
-
-  // const [values, setValues] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const handleChange = (e) => {
-  //   const { id, value } = e.target;
-  //   setValues({
-  //     ...values,
-  //     [id]: value,
-  //   });
-  // };
-
-  // dispatch(handleLoginSubmit(values.email, values.password));
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
 
   const history = useHistory();
   const loginSubmit = async () => {
@@ -42,9 +21,6 @@ const Login = () => {
       alert("Login Failed");
     }
   };
-  // useEffect(() => {
-  //   dispatch(handleLoginSubmit());
-  // }, [dispatch]);
 
   return (
     <>

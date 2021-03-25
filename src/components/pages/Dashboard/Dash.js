@@ -4,6 +4,7 @@ import NavDash from "../../parts/Navbar/NavDash";
 import UploadImg from "../../parts/Upload/UploadImg";
 import Beranda from "../Beranda/Beranda";
 import Home from "../Home/Home";
+import SavesFiles from "../SavedFiles/SavesFiles";
 import UserWork from "../userWork/UserWork";
 
 const Dash = () => {
@@ -12,6 +13,7 @@ const Dash = () => {
       <NavDash />
       <Router>
         <Switch>
+          <Route path="/dash/savedfiles" exact component={SavesFiles} />
           <Route path="/dash/category/:id" component={UserWork} />
           <Route path="/dash/Home" exact component={Home} />
           <Route path="/dash/upload" exact component={UploadImg} />
