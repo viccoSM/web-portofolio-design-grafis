@@ -10,7 +10,7 @@ const useFormSearch = () => {
         .database()
         .ref("files/")
         .orderByChild("description")
-        .startAfter(searchWork);
+        .startAt(searchWork);
       starCountRef.on("value", (snapshot) => {
         if (snapshot.val() === null) {
           console.log("errror");
