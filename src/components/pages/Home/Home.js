@@ -52,7 +52,7 @@ const Home = () => {
           <div className="d-flex flex-row-reverse">
             <FormCategory />
           </div>
-          <div class="d-flex flex-wrap">
+          <div className="d-flex flex-wrap">
             <CardsCategory
               title={"Saved Files"}
               view={() => {

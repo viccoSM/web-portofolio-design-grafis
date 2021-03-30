@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Comments from "../../parts/Comments/Comments";
 import NavDash from "../../parts/Navbar/NavDash";
 import UploadImg from "../../parts/Upload/UploadImg";
 import Beranda from "../Beranda/Beranda";
@@ -20,6 +21,7 @@ const Dash = () => {
           <Route path="/dash/upload" exact component={UploadImg} />
           <Route path="/dash/beranda" exact component={Beranda} />
           <Route path="/dash/search/:id" component={Search} />
+          <Route path="/dash/comments/:id" component={Comments} />
         </Switch>
       </Router>
     </>

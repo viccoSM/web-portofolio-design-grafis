@@ -4,11 +4,14 @@ import firebase from "../../../config/Firebase/Firebase";
 
 const useFormUserWork = () => {
   const [images, setImages] = useState([]);
+  const [like, setLike] = useState(false);
+
+  // const idImg = JSON.parse(localStorage.getItem("idImg"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const idCategory = JSON.parse(localStorage.getItem("idCategory"));
 
   const getImageApi = async () => {
     return new Promise((resolve, reject) => {
-      const userData = JSON.parse(localStorage.getItem("userData"));
-      const idCategory = JSON.parse(localStorage.getItem("idCategory"));
       const starCountRef = firebase
         .database()
         .ref("files/")
@@ -20,7 +23,7 @@ const useFormUserWork = () => {
           console.log("errror");
         } else {
           const infoData = [];
-          // console.log("data", snapshot.val());
+          // console.log("data", snapshot.val(idCategory));
           Object.keys(snapshot.val()).map((key) => {
             infoData.push({
               id: key,
@@ -29,38 +32,7 @@ const useFormUserWork = () => {
           });
           resolve(setImages(infoData));
         }
-        // console.log("info", infoData);
-        // setImages(infoData);
-        // console.log("datainfo", snapshot.val());
       });
-      // .catch((err) => {
-      //   console.log("error", err);
-      // });
-      //   // console.log("info", images);
-      //   // updateStarCount(postElement, data);
-      // });
-      // .catch((err) => {
-      //   console.log("err", err);
-      // });
-      //   axios
-      //     .get(
-      //       `https://portofolio-desain-grafis-default-rtdb.firebaseio.com/files/${idCategory}.json`
-      //     )
-      //     .then((res) => {
-      //       const infoData = [];
-      //       Object.keys(res.data).map((key) => {
-      //         infoData.push({
-      //           id: key,
-      //           data: res.data[key],
-      //         });
-      //       });
-      //       // setImages(infoData);
-      //       setImages(infoData);
-      //       console.log("img", images);
-      //       // console.log("info", infoData);
-      //     })
-      //     .catch((error) => {
-      //       console.log(error);
     });
   };
   const deleteImg = () => {
@@ -78,7 +50,63 @@ const useFormUserWork = () => {
       });
   };
 
-  return { images, getImageApi, deleteImg };
+  const likeWork = () => {
+    const idImg = JSON.parse(localStorage.getItem("idImg"));
+    const countLikes = JSON.parse(localStorage.getItem("countLikes"));
+    const starCountRef = firebase
+      .database()
+      .ref("likes/" + idImg)
+      .orderByChild("userId")
+      .equalTo(userData.user.uid);
+
+    starCountRef.once("value", (snapshot) => {
+      console.log(snapshot.val);
+      if (snapshot.val() !== null) {
+        snapshot.forEach((childSnapshot) => {
+          const key = childSnapshot.key;
+          const value = childSnapshot.val();
+          console.log("Title is : " + value.like);
+          console.log("key", key);
+          if (value.like == true) {
+            firebase
+              .database()
+              .ref("likes/" + idImg + "/" + key)
+              .update({ like: false });
+
+            firebase
+              .database()
+              .ref("files/" + idImg)
+              .update({ likes: countLikes - 1 });
+          } else if (value.like == false) {
+            firebase
+              .database()
+              .ref("likes/" + idImg + "/" + key)
+              .update({ like: true });
+
+            firebase
+              .database()
+              .ref("files/" + idImg)
+              .update({ likes: countLikes + 1 });
+          }
+        });
+      } else {
+        firebase
+          .database()
+          .ref("likes/" + idImg)
+          .push({
+            userId: userData.user.uid,
+            like: true,
+          });
+
+        firebase
+          .database()
+          .ref("files/" + idImg)
+          .update({ likes: +1 });
+      }
+    });
+  };
+
+  return { images, getImageApi, deleteImg, likeWork };
 };
 
 export default useFormUserWork;

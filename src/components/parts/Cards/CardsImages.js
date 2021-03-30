@@ -11,11 +11,11 @@ const CardsImages = (props) => {
             <img src={props.imageUrl} alt="" />
           </div>
           <div className="btn icons">
-            <button>
+            <button onClick={() => props.likeWork()}>
               {props.iconLike}
               <p>{props.likes}</p>
             </button>
-            <button onClick={() => props.view(props.id)}>
+            <button onClick={() => props.comments()}>
               {/* <BiComment /> */}
               {props.iconComment}
             </button>

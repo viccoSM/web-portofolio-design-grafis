@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import { BiComment, BiLike, BiSave, BiShare } from "react-icons/bi";
+import { useHistory } from "react-router";
+import likesWork from "../../../config/likesWork/likesWork";
 import CardsImages from "../../parts/Cards/CardsImages";
 import SearchBar from "../../parts/SearchBar/SearchBar";
 import useFormBeranda from "./useForm";
 const Beranda = () => {
   const { getImageApi, images, saveImages } = useFormBeranda();
+  const { likeWork } = likesWork();
+
+  const history = useHistory();
+
   useEffect(() => {
     getImageApi();
     // console.log("img", images);
@@ -23,16 +29,39 @@ const Beranda = () => {
                   userName={info.data.user}
                   imageUrl={info.data.file}
                   body={info.data.description}
+                  likes={info.data.likes}
                   iconComment={<BiComment />}
                   iconShare={<BiShare />}
                   iconSave={<BiSave />}
                   iconLike={<BiLike />}
+                  comments={() => {
+                    const idImg = localStorage.setItem(
+                      "idImg",
+                      JSON.stringify(info.id)
+                    );
+                    const imgUrl = localStorage.setItem(
+                      "imgUrl",
+                      JSON.stringify(info.data.file)
+                    );
+                    history.push(`/dash/comments/${info.id}`);
+                  }}
                   save={() => {
                     saveImages(
                       info.data.description,
                       info.data.file,
                       info.data.user
                     );
+                  }}
+                  likeWork={() => {
+                    const countLikes = localStorage.setItem(
+                      "countLikes",
+                      info.data.likes
+                    );
+                    const idImg = localStorage.setItem(
+                      "idImg",
+                      JSON.stringify(info.id)
+                    );
+                    likeWork();
                   }}
                 />
               );

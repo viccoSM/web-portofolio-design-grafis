@@ -11,12 +11,14 @@ const useFormBeranda = () => {
         if (snapshot.val() === null) {
           console.log("errror");
         } else {
+          // console.log(snapshot.val());
           const infoData = [];
           Object.keys(snapshot.val()).map((key) => {
             infoData.push({
               id: key,
               data: snapshot.val()[key],
             });
+            // console.log(infoData.data);
           });
           console.log("data", infoData);
           setImages(infoData);

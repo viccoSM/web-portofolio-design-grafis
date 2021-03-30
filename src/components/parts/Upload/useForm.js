@@ -51,8 +51,8 @@ export const useFormUpload = () => {
       const userName = JSON.parse(localStorage.getItem("userName"));
       const idCategory = JSON.parse(localStorage.getItem("idCategory"));
       // console.log("username", userName);
-      console.log("user", userData.user.uid);
-      console.log("category", desc);
+      // console.log("user", userData.user.uid);
+      // console.log("category", desc);
       firebase
         .database()
         .ref("files/")
@@ -61,6 +61,7 @@ export const useFormUpload = () => {
           user: userName,
           description: desc,
           file: res,
+          likes: 0,
         })
         .then((res) => {
           console.log("success", res);
