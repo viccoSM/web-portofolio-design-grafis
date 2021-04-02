@@ -54,7 +54,7 @@ const UserWork = () => {
                       "imgUrl",
                       JSON.stringify(info.data.file)
                     );
-                    history.push(`/dash/comments/${info.id}`);
+                    history.push(`/dash/scream/${info.id}`);
                   }}
                   likeWork={() => {
                     const countLikes = localStorage.setItem(

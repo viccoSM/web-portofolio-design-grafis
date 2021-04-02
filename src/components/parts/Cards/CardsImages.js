@@ -1,6 +1,8 @@
 import React from "react";
 import { BiComment, BiLike, BiSave, BiShare, BiTrash } from "react-icons/bi";
 
+import Rating from "../Rating/Rating";
+
 const CardsImages = (props) => {
   return (
     <>
@@ -32,11 +34,11 @@ const CardsImages = (props) => {
               {props.iconDelete}
             </button>
           </div>
+          {/* <Rating /> */}
           {/* <div className="card-title">
             <h3>{props.title}</h3>
           </div> */}
           <p>{props.body}</p>
-          <div className="card-body"></div>
         </div>
       </div>
     </>

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import CardsComments from "../Cards/CardsComments";
-import "./Comments.css";
+import Rating from "../Rating/Rating";
+import "./Scream.css";
 import useFormComments from "./useForm";
 
-const Comments = () => {
+const Scream = () => {
   const {
     handleChange,
     handleSubmit,
@@ -21,8 +22,17 @@ const Comments = () => {
   return (
     <>
       <div className="comments container">
-        <div className="image-container">
-          <img src={imgUrl} alt="" />
+        <div className="scream container">
+          <div className="row">
+            <div className="col-md-8">
+              <div className="image-container">
+                <img src={imgUrl} alt="" />
+              </div>
+            </div>
+            <div className="col-md scream">
+              <Rating />
+            </div>
+          </div>
         </div>
         <form className="form-upload" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -32,7 +42,7 @@ const Comments = () => {
               // name=""
               id="desc"
               // cols="5"
-              rows="3"
+              rows="2"
               className="form-control"
               value={comments}
               onChange={handleChange}
@@ -58,4 +68,4 @@ const Comments = () => {
   );
 };
 
-export default Comments;
+export default Scream;
