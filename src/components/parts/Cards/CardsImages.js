@@ -21,7 +21,7 @@ const CardsImages = (props) => {
               {/* <BiComment /> */}
               {props.iconComment}
             </button>
-            <button>
+            <button onClick={() => props.share()}>
               {/* <BiShare /> */}
               {props.iconShare}
             </button>

@@ -67,6 +67,13 @@ const UserWork = () => {
                     );
                     likeWork();
                   }}
+                  share={() => {
+                    const imgUrl = localStorage.setItem(
+                      "imgUrl",
+                      JSON.stringify(info.data.file)
+                    );
+                    history.push(`/dash/share/${info.id}`);
+                  }}
                   iconDelete={<BiTrash />}
                   iconLike={<BiLike />}
                   iconShare={<BiShare />}

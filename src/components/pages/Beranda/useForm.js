@@ -44,6 +44,7 @@ const useFormBeranda = () => {
         file: fileUrl,
       })
       .then((res) => {
+        alert("success");
         console.log("success", res);
       })
       .catch((err) => {

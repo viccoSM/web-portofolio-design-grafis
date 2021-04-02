@@ -8,6 +8,7 @@ import SavesFiles from "../SavedFiles/SavesFiles";
 import Search from "../Search/Search";
 import UserWork from "../userWork/UserWork";
 import Scream from "../../parts/Scream/Scream";
+import Share from "../../parts/Share/Share";
 
 const Dash = () => {
   return (
@@ -22,6 +23,7 @@ const Dash = () => {
           <Route path="/dash/beranda" exact component={Beranda} />
           <Route path="/dash/search/:id" component={Search} />
           <Route path="/dash/scream/:id" component={Scream} />
+          <Route path="/dash/share/:id" component={Share} />
         </Switch>
       </Router>
     </>

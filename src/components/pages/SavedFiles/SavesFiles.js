@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { BiShare, BiTrash } from "react-icons/bi";
+import { useHistory } from "react-router";
 import CardsImages from "../../parts/Cards/CardsImages";
 import useFormSaved from "./useForm";
 
 const SavesFiles = () => {
   const [images, setImages] = useState([]);
   const { deleteImg } = useFormSaved();
+  const history = useHistory();
 
   const getImages = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -55,6 +57,13 @@ const SavesFiles = () => {
                       JSON.stringify(info.id)
                     );
                     deleteImg();
+                  }}
+                  share={() => {
+                    const imgUrl = localStorage.setItem(
+                      "imgUrl",
+                      JSON.stringify(info.data.file)
+                    );
+                    history.push(`/dash/share/${info.id}`);
                   }}
                   iconDelete={<BiTrash />}
                   iconShare={<BiShare />}

@@ -39,7 +39,7 @@ const Rating = () => {
         );
       })}
       <div>
-        <p>your rating</p>
+        {/* <p>your rating</p>
         <StarRatings
           rating={rating}
           starRatedColor="gold"
@@ -48,7 +48,7 @@ const Rating = () => {
           starSpacing="1px"
           numberOfStars={5}
           name="rating"
-        />
+        /> */}
       </div>
       {ratings.map((info) => {
         return (
