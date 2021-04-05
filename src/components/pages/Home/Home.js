@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     getProfilApi();
     getCategoryApi();
-  });
+  }, []);
   return (
     <>
       <div className="home jumbotron bg-dark" style={{ background: `url()` }}>

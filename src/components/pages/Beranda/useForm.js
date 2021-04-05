@@ -23,9 +23,14 @@ const useFormBeranda = () => {
           console.log("data", infoData);
           setImages(infoData);
           console.log("img", images);
+          localStorage.setItem("imagesApi", JSON.stringify(infoData));
           resolve(infoData);
         }
       });
+      // .catch((err) => {
+      //   const categoriesApi = JSON.parse(localStorage.getItem(categoriesApi));
+      //   setImages(categoriesApi);
+      // });
     });
   };
 
