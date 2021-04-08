@@ -1,23 +1,67 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import {
+  Navbar,
+  Nav,
+  Container,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 
 import "./Navbar.css";
 
-const Navbar = () => {
+const NavBar = () => {
+  const history = useHistory();
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Navbar collapseOnSelect expand="sm" bg="light" variant="light">
+        <Container>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar">
+            <Nav className="mr-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/aboutus">About Us</Nav.Link>
+            </Nav>
+            <Form inline>
+              <Button
+                variant="outline-primary"
+                onClick={() => {
+                  history.push("/login");
+                }}
+              >
+                Login
+              </Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  history.push("/registration");
+                }}
+              >
+                Registration
+              </Button>
+            </Form>
+            {/* <Nav>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/aboutus">About Us</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
+              
+            </Nav> */}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
           Logo
         </a>
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          // data-toggle="collapse"
+          // data-target="#navbarSupportedContent"
+          // aria-controls="navbarSupportedContent"
+          // aria-expanded="false"
+          // aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -50,9 +94,9 @@ const Navbar = () => {
             </ul>
           </form>
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 };
 
-export default Navbar;
+export default NavBar;

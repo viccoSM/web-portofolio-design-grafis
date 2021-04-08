@@ -11,17 +11,18 @@ export default function Footer() {
             <div className="col-md-8">
               <h6>About us</h6>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Quibusdam esse cumque repellat vel amet voluptates expedita
-                quaerat facilis voluptatibus harum aspernatur natus ipsum,
-                voluptas ullam officiis veritatis, cum commodi assumenda.
+                Kami adalah mahasiswa Universitas Klabat yang membuat platform
+                ini. Platform ini merupakan platform portofolio desain grafis
+                yang dikhuskan bagi para mahasiswa yang memiliki minat di bidang
+                desain grafis.
               </p>
             </div>
             <div className="col-md">
               <h6>Contact Us</h6>
               <ul>
                 <li>089684949063</li>
-                <li>user@gmail.com</li>
+                <li>manoposemuel@gamil.com</li>
+                <li>pietersonrionaldo9@gmail.com</li>
               </ul>
             </div>
           </div>

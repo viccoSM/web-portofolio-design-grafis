@@ -65,7 +65,7 @@ const Home = () => {
                   key={info.id}
                   title={info.data.tittle}
                   textDelete={"Delete"}
-                  textEdit={"Edit"}
+                  // textEdit={"Edit"}
                   delete={() => {
                     const idCategory = localStorage.setItem(
                       "idCategory",

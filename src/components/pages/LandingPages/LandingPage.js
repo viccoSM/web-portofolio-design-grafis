@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "../../parts/Login/Login";
-import Navbar from "../../parts/Navbar/Navbar";
+import NavBar from "../../parts/Navbar/NavBar";
 import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
     <>
-      <Navbar />
+      <NavBar />
       <div className="landingpage jumbotron">
         <div className="landingpage container">
           <div className="row">

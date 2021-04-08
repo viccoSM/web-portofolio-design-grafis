@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "../../components/pages/LandingPages/LandingPage";
 import Footer from "../../components/parts/Footer/Footer";
 import Registration from "../../components/parts/Registration/Registration";
-import Navbar from "../../components/parts/Navbar/Navbar";
+import NavBar from "../../components/parts/Navbar/NavBar";
 import Login from "../../components/parts/Login/Login";
 import AboutUs from "../../components/pages/AboutUs/AboutUs";
 import Dash from "../../components/pages/Dashboard/Dash";
@@ -18,15 +18,15 @@ function Routes() {
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/registration" exact>
-            <Navbar />
+            <NavBar />
             <Registration />
           </Route>
           <Route path="/login" exact>
-            <Navbar />
+            <NavBar />
             <Login />
           </Route>
           <Route path="/aboutus" exact>
-            <Navbar />
+            <NavBar />
             <AboutUs />
           </Route>
           <Route path="/Dash" component={Dash} />

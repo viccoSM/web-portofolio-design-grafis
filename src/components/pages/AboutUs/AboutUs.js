@@ -10,10 +10,10 @@ function AboutUs() {
             <div className="col-md-6">
               <h1 className="aboutus display-4">About Us</h1>
               <p className="aboutus lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-                illo reprehenderit, aperiam vel, omnis laudantium temporibus
-                fuga nemo voluptates deleniti et obcaecati pariatur
-                perspiciatis, maiores hic quibusdam enim molestias ducimus!
+                Kami adalah mahasiswa Universitas Klabat yang membuat platform
+                ini. Platform ini merupakan platform portofolio desain grafis
+                yang dikhuskan bagi para mahasiswa yang memiliki minat di bidang
+                desain grafis.
               </p>
             </div>
             <div className="col-md login"></div>

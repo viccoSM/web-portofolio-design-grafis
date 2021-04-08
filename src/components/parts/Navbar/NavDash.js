@@ -1,5 +1,13 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import {
+  Navbar,
+  Nav,
+  Container,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 import SearchBar from "../SearchBar/SearchBar";
 import firebase from "../../../config/Firebase/Firebase";
 
@@ -26,7 +34,37 @@ const NavDash = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      {" "}
+      <Navbar collapseOnSelect expand="sm" bg="light" variant="light">
+        <Container>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar">
+            <Nav className="mr-auto">
+              <Nav.Link href="/dash/Home">Home</Nav.Link>
+              <Nav.Link href="/dash/beranda">Beranda</Nav.Link>
+            </Nav>
+            <Form inline>
+              <SearchBar />
+              <Button
+                variant="outline-primary"
+                onClick={() => {
+                  handleLogout();
+                  history.push("/");
+                }}
+              >
+                Log Out
+              </Button>
+            </Form>
+            {/* <Nav>
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/aboutus">About Us</Nav.Link>
+          <Nav.Link href="/login">Login</Nav.Link>
+          
+        </Nav> */}
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
           Logo
         </a>
@@ -86,7 +124,7 @@ const NavDash = () => {
             </ul>
           </form>
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 };
