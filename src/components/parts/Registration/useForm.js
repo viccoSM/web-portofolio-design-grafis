@@ -35,7 +35,6 @@ const useFormRegister = (validate) => {
           localStorage.setItem("userData", JSON.stringify(res));
           // Signed in
           // ...
-          console.log("success", res);
           resolve(res);
         })
         .catch((error) => {
@@ -52,7 +51,6 @@ const useFormRegister = (validate) => {
     const res = await handleRegisterSubmit().catch((err) => err);
     if (res) {
       const userData = JSON.parse(localStorage.getItem("userData"), res);
-      console.log("uer", userData.user.uid);
       firebase
         .database()
         .ref("users/" + userData.user.uid + "/information")
@@ -66,7 +64,6 @@ const useFormRegister = (validate) => {
           gender: values.gender,
         });
       history.push("/login");
-      console.log("success", res);
     } else {
       alert("register Failed");
     }

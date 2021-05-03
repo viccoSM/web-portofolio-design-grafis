@@ -20,9 +20,7 @@ const useFormBeranda = () => {
             });
             // console.log(infoData.data);
           });
-          console.log("data", infoData);
           setImages(infoData);
-          console.log("img", images);
           localStorage.setItem("imagesApi", JSON.stringify(infoData));
           resolve(infoData);
         }
@@ -38,8 +36,6 @@ const useFormBeranda = () => {
     const userName = JSON.parse(localStorage.getItem("userName"));
     const userData = JSON.parse(localStorage.getItem("userData"));
     // console.log("username", userName);
-    console.log("user", userData.user.uid);
-    console.log("category", desc);
     firebase
       .database()
       .ref("users/" + userData.user.uid + "/saved")
@@ -50,10 +46,8 @@ const useFormBeranda = () => {
       })
       .then((res) => {
         alert("success");
-        console.log("success", res);
       })
       .catch((err) => {
-        console.log("error", err);
         alert("upload failed");
       });
   };

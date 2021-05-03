@@ -17,8 +17,8 @@ const likesWork = () => {
         snapshot.forEach((childSnapshot) => {
           const key = childSnapshot.key;
           const value = childSnapshot.val();
-          console.log("Title is : " + value.like);
-          console.log("key", key);
+          // console.log("Title is : " + value.like);
+          // console.log("key", key);
           if (value.like == true) {
             firebase
               .database()

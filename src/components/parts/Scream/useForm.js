@@ -1,19 +1,12 @@
-import axios from "axios";
-import moment from "moment";
 import React, { useState } from "react";
 import firebase from "../../../config/Firebase/Firebase";
 
 const useFormComments = () => {
   const [comments, setComments] = useState();
   const [viewComments, setViewComments] = useState([]);
-  //   const [time, setTime] = useState();
 
   const userName = JSON.parse(localStorage.getItem("userName"));
   const idImg = JSON.parse(localStorage.getItem("idImg"));
-  //   const getTime = () => {
-  //     const timeNow = moment().format("LLL");
-  //     setTime(timeNow);
-  //   };
 
   const handleChange = (e) => {
     setComments(e.target.value);
@@ -37,7 +30,7 @@ const useFormComments = () => {
               data: snapshot.val()[key],
             });
           });
-          console.log("data", infoData);
+          // console.log("data", infoData);
           setViewComments(infoData);
           resolve(viewComments);
         }
@@ -59,7 +52,6 @@ const useFormComments = () => {
         console.log("success", res);
       })
       .catch((err) => {
-        console.log("error", err);
         alert("upload failed");
       });
   };

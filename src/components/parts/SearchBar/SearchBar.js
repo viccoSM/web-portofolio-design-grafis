@@ -16,7 +16,6 @@ function SearchBar() {
       JSON.stringify(searchTerm)
     );
     history.push(`/dash/search/${searchTerm}`);
-    console.log(searchTerm);
   };
   return (
     <div className="SearchBar">

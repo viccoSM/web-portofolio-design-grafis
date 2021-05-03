@@ -2,8 +2,6 @@ import React from "react";
 import {
   FacebookIcon,
   FacebookShareButton,
-  InstapaperIcon,
-  InstapaperShareButton,
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";

@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router";
-
-import firebase from "../../../config/Firebase/Firebase";
+import React from "react";
 
 import "./UploadImg.css";
 import useFormUpload from "./useForm";

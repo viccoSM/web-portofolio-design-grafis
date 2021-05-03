@@ -1,13 +1,6 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import {
-  Navbar,
-  Nav,
-  Container,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
 import SearchBar from "../SearchBar/SearchBar";
 import firebase from "../../../config/Firebase/Firebase";
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BiComment, BiLike, BiSave, BiShare } from "react-icons/bi";
-import firebase from "../../../config/Firebase/Firebase";
 import CardsImages from "../../parts/Cards/CardsImages";
 import useFormSearch from "./useform";
 

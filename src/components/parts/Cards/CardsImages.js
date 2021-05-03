@@ -1,8 +1,4 @@
 import React from "react";
-import { BiComment, BiLike, BiSave, BiShare, BiTrash } from "react-icons/bi";
-
-import Rating from "../Rating/Rating";
-
 const CardsImages = (props) => {
   return (
     <>

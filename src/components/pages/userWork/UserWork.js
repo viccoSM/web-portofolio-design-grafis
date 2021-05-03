@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BiComment, BiLike, BiShare, BiTrash } from "react-icons/bi";
 import { useHistory } from "react-router";
 import likesWork from "../../../config/likesWork/likesWork";
-// import CardsCategory from "../../parts/Cards/CardsCategory";
-// import Cards from "../../parts/Cards/CardsCategory";
 import CardsImages from "../../parts/Cards/CardsImages";
 import useFormUserWork from "./useForm";
 

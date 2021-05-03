@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import StarRatings from "react-star-ratings";
 import GetRatings from "./GetRatings";
@@ -27,7 +27,6 @@ const Rating = () => {
                 // setRating(ratingValue);
                 // console.log(ratingValue);
                 addValueRating(ratingValue);
-                console.log(rating);
               }}
             />
 
@@ -38,18 +37,7 @@ const Rating = () => {
           </label>
         );
       })}
-      <div>
-        {/* <p>your rating</p>
-        <StarRatings
-          rating={rating}
-          starRatedColor="gold"
-          // changeRating={this.changeRating}
-          starDimension="15px"
-          starSpacing="1px"
-          numberOfStars={5}
-          name="rating"
-        /> */}
-      </div>
+      <div></div>
       {ratings.map((info) => {
         return (
           <GetRatings

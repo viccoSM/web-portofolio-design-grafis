@@ -3,8 +3,6 @@ import { BiComment, BiLike, BiSave, BiShare } from "react-icons/bi";
 import { useHistory } from "react-router";
 import likesWork from "../../../config/likesWork/likesWork";
 import CardsImages from "../../parts/Cards/CardsImages";
-import Rating from "../../parts/Rating/Rating";
-import SearchBar from "../../parts/SearchBar/SearchBar";
 import useFormBeranda from "./useForm";
 const Beranda = () => {
   const { getImageApi, images, saveImages } = useFormBeranda();

@@ -6,7 +6,6 @@ const useFormUserWork = () => {
   const [images, setImages] = useState([]);
   const [like, setLike] = useState(false);
 
-  // const idImg = JSON.parse(localStorage.getItem("idImg"));
   const userData = JSON.parse(localStorage.getItem("userData"));
   const idCategory = JSON.parse(localStorage.getItem("idCategory"));
 
@@ -20,10 +19,9 @@ const useFormUserWork = () => {
       starCountRef.on("value", (snapshot) => {
         // const data = snapshot.val();
         if (snapshot.val() === null) {
-          console.log("errror");
+          console.warn("Null");
         } else {
           const infoData = [];
-          // console.log("data", snapshot.val(idCategory));
           Object.keys(snapshot.val()).map((key) => {
             infoData.push({
               id: key,
@@ -65,8 +63,8 @@ const useFormUserWork = () => {
         snapshot.forEach((childSnapshot) => {
           const key = childSnapshot.key;
           const value = childSnapshot.val();
-          console.log("Title is : " + value.like);
-          console.log("key", key);
+          // console.log("Title is : " + value.like);
+          // console.log("key", key);
           if (value.like == true) {
             firebase
               .database()

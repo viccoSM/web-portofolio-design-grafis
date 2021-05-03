@@ -5,7 +5,6 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 
 import swDev from "./swDev";
 import firebase from "./config/Firebase/Firebase";

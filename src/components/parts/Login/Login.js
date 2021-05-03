@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import { handleLoginSubmit } from "../../../config/Redux/Action/Auth";
@@ -13,11 +13,8 @@ const Login = () => {
   const loginSubmit = async () => {
     const res = await handleLoginSubmit().catch((err) => err);
     if (res) {
-      // localStorage.setItem("userData", JSON.stringify(res));
-      console.log("Login success", res);
       history.push("/dash/Home");
     } else {
-      console.log("login failed");
       alert("Login Failed");
     }
   };

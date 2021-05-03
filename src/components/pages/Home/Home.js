@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../../config/Firebase/Firebase";
 import FormCategory from "../../parts/Catagory/FormCategory";
 // import Cards from "../../parts/Cards/Cards";
 import Profile from "../../parts/Profile/Profile";

@@ -64,11 +64,9 @@ export const useFormUpload = () => {
           likes: 0,
         })
         .then((res) => {
-          console.log("success", res);
           history.push(`/dash/category/${idCategory}`);
         })
         .catch((err) => {
-          console.log("error", err);
           alert("upload failed");
         });
     }

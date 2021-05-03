@@ -27,7 +27,6 @@ const SavesFiles = () => {
           });
         });
         setImages(infoData);
-        console.log("img", images);
         // console.log("categories", categories);
       })
       .catch((error) => {

@@ -16,7 +16,6 @@ const useFormSearch = () => {
           console.log("errror");
         } else {
           const infoData = [];
-          // console.log("data", snapshot.val());
           Object.keys(snapshot.val()).map((key) => {
             infoData.push({
               id: key,
@@ -32,8 +31,6 @@ const useFormSearch = () => {
     const userName = JSON.parse(localStorage.getItem("userName"));
     const userData = JSON.parse(localStorage.getItem("userData"));
     // console.log("username", userName);
-    console.log("user", userData.user.uid);
-    console.log("category", desc);
     firebase
       .database()
       .ref("users/" + userData.user.uid + "/saved")
@@ -46,7 +43,6 @@ const useFormSearch = () => {
         console.log("success", res);
       })
       .catch((err) => {
-        console.log("error", err);
         alert("upload failed");
       });
   };

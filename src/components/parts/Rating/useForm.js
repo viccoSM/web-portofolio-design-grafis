@@ -31,12 +31,10 @@ const useFormRating = () => {
           console.log(rating);
           const key = childSnapshot.key;
           const value = childSnapshot.val();
-          console.log("key", key);
           firebase
             .database()
             .ref("rating/" + idImg + "/" + key)
             .update({ rating: ratingValue });
-          console.log("Title is : " + value.rating);
         });
       }
     });
@@ -46,7 +44,7 @@ const useFormRating = () => {
     const starCountRef = firebase.database().ref("rating/" + idImg);
     starCountRef.on("value", (snapshot) => {
       if (snapshot.val() === null) {
-        console.log("errror");
+        console.warn("Null");
       } else {
         const infoData = [];
         Object.keys(snapshot.val()).map((key) => {
@@ -55,9 +53,7 @@ const useFormRating = () => {
             data: snapshot.val()[key],
           });
         });
-        console.log("data", infoData);
         setRatings(infoData);
-        console.log(ratings);
       }
     });
   };
